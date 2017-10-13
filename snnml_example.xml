@@ -1,4 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<sml>
 
-</sml>
+<SML version="0.1" xmlns="" xml:lang="en">
+  <Data>
+    <Samples uri="folder/*csv" hasFeatureNames="false" hasClssLabels="false">Samples could not be found. Software exited.</Samples>
+    <FeatureName uri="folder/feature_names.txt">Feature names could not be found. Defaults feature names will be used.</FeatureName>
+    <CubeCoordinates uri="folder/cube.csv">Cube coordinates could not be found. Default coordinates will be used.</CubeCoordinates>
+    <InputMapping uri="folder/mapping.csv">Input mapping coordinates could not be found. Default mapping will be used.</InputMapping>
+    <ClassLabels uri="folder/labels.txt">Class labels could not be found. Only unsupervised learning will be performed.</ClassLabels>
+  </Data>
+  <Neuron type="lif">
+    <Properties>
+      <property type="dt" unit="ms">10</property>
+      <property type="threshold" unit="">5</property>
+    </Properties>
+  </Neuron>
+  <Network type="neucube">
+    <Weights rows="3" cols="3">
+      <Array type="decimal" row="1">0.1 0.2 0.3</Array>
+      <Array type="decimal" row="2">0.4 0.5 0.6</Array>
+      <Array type="decimal" row="3">0.7 0.8 0.9</Array>
+    </Weights>
+    <Connection rows="3" cols="3">
+      <Array type="real" row="1">1 0 0</Array>
+      <Array type="real" row="2">0 0 1</Array>
+      <Array type="real" row="3">0 1 0</Array>
+    </Connection>
+  </Network>
+  <Unsupervised learningRule="stdp">
+    <Properties>
+      <property type="dt" unit="ms">0.5</property>
+    </Properties>
+  </Unsupervised>
+  <Supervised learningType="desnnc">
+    <Properties>
+      <Property type="mod" unit="">0.8</Property>
+      <Property type="drift" unit="">0.005</Property>
+      <Property type="knn" unit="">3</Property>
+      <Property type="sigma" unit="">1</Property>
+    </Properties>
+  </Supervised>
+</SML>
